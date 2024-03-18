@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const AddToCartPage = ({ cartItems }) => {
@@ -6,6 +6,16 @@ const AddToCartPage = ({ cartItems }) => {
   const calculateTotalAmount = () => {
     return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   };
+
+  const [count, setCount] = useState(1)
+
+  const incrementCount =() =>{
+    setCount( count + 1);
+  }
+
+  const decrementCount = () => {
+    setCount (count - 1);
+  }
 
   return (
     <div className="container mx-auto mt-8">
@@ -41,11 +51,14 @@ const AddToCartPage = ({ cartItems }) => {
                   <td className="py-4">
                     {new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(item.price)}
                   </td>
-                  <td className="py-4">{item.quantity}</td>
+                  <td className="py-4 cursor-pointer"><th className="text-blue-500 ring-2 px-3 py-0.5 rounded-md " onClick={decrementCount}>-</th> 
+                  <th className="text-blue-500 ring-2 px-3 py-0.5  rounded-md">{count}</th> 
+                  <th className="text-blue-500 ring-2 px-3 py-0.5 rounded-md" onClick={incrementCount}>+</th> </td>
                   <td className="py-4">
-                    <Link to="/checkout" className="text-blue-500">
+                    <Link to="/checkout" className="text-blue-500 ring-2 rounded-sm py-1 px-2">
                       Buy Now
                     </Link>
+                  
                   </td>
                 </tr>
               ))}

@@ -10,6 +10,15 @@ import Logo from "../assets/images/shoppingCart.png";
 
 const Navbar = ({ cartItemCount, wishlistItemCount }) => {
   const [open, setOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const handleDropdownToggle = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const closeDropdown = () => {
+    setIsDropdownOpen(false);
+  };
 
   return (
     <section className="relative bg-gray-100 border-b font-poppins dark:bg-gray-800 dark:border-gray-800">
@@ -119,12 +128,29 @@ const Navbar = ({ cartItemCount, wishlistItemCount }) => {
                   <span className="ml-1">{cartItemCount}</span>
                 )}
               </Link>
-              <a
-                href="#"
-                className="items-center hidden pl-6 text-sm font-semibold lg:flex dark:text-gray-400"
-              >
-                <BsPerson size={20} color="yellow" />
-              </a>
+              <div className="relative inline-block text-left" onMouseLeave={ () =>closeDropdown()}>
+      <Link
+        to="#"
+        onClick={handleDropdownToggle}
+        // className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring focus:border-blue-300 relative z-10"
+      >
+        <BsPerson size={20} color="yellow" />
+      </Link>
+
+      {isDropdownOpen && (
+        <div className="origin-top-right  absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-20" 
+        onMouseLeave={ () =>closeDropdown()}>
+          <div role="none">
+            <Link to="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 border border-gray-300" role="menuitem">My Profile</Link>
+            <Link to="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 border border-gray-300 " role="menuitem">My Order</Link>
+            <Link to="/addToCart" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 border border-gray-300" role="menuitem">Add to Cart</Link>
+            <Link to="/wishlist" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 border border-gray-300" role="menuitem">Wishlist</Link>
+            <Link to="signIn" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 border border-gray-300" role="menuitem">Sign Out</Link>
+            <Link to="logIn" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 border border-gray-300" role="menuitem">Log In</Link>
+          </div>
+        </div>
+      )}
+    </div>
             </div>
           </div>
         </nav>
