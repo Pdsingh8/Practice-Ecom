@@ -21,7 +21,6 @@ const Card = ({
       <div className="flex flex-wrap relative">
         <div className="w-72 mx-4 my-4 overflow-hidden shadow-lg hover:shadow-xl transition-transform duration-300 transform hover:scale-105 relative">
           <img className="w-full h-48 object-cover" src={url} alt="Product" />
-
           <div className="px-4 py-3">
             <div className="flex justify-between items-center">
               <div>

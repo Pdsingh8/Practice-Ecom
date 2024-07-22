@@ -71,7 +71,7 @@ function Footer() {
 
             <ul className="flex gap-2">
               <a
-                href="https://www.youtube.com/@reactjsBD"
+                
                 target="_blank"
                 rel="noreferrer"
               >
@@ -80,7 +80,7 @@ function Footer() {
                 </li>
               </a>
               <a
-                href="https://github.com/noorjsdivs"
+                
                 target="_blank"
                 rel="noreferrer"
               >
@@ -89,7 +89,7 @@ function Footer() {
                 </li>
               </a>
               <a
-                href="https://www.facebook.com/Noorlalu143/"
+                
                 target="_blank"
                 rel="noreferrer"
               >
@@ -98,7 +98,7 @@ function Footer() {
                 </li>
               </a>
               <a
-                href="https://www.linkedin.com/in/noor-mohammad-ab2245193/"
+                
                 target="_blank"
                 rel="noreferrer"
               >
@@ -117,7 +117,7 @@ function Footer() {
             <span className="text-md mr-[1px] mt-[2px] md:mt-0 text-center hidden md:inline-flex">
               <AiOutlineCopyright />
             </span>
-            Copyright 2022 | Orebi shopping | All Rights Reserved |
+            Copyright 2024 | Orebi shopping | All Rights Reserved |
             <a href="https://reactbd.com/" target="_blank" rel="noreferrer">
               <span className="ml-1 font-medium group-hover:text-primeColor">
                 Powered by OILab.com
